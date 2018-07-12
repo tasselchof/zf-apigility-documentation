@@ -50,7 +50,7 @@ class Controller extends AbstractActionController
         $viewModel->setTemplate('zf-apigility-documentation/show');
         $viewModel->setVariable('baseUrl', $this->serverUrlViewHelper->__invoke());
 
-        if (!$apiName) {
+        if (! $apiName) {
             $apiList = $this->apiFactory->createApiList();
             $viewModel->setVariable('apis', $apiList);
             $viewModel->setVariable('type', 'apiList');
@@ -59,7 +59,7 @@ class Controller extends AbstractActionController
 
         $api = $this->apiFactory->createApi($apiName, $apiVersion);
 
-        if (!$serviceName) {
+        if (! $serviceName) {
             $viewModel->setVariable('documentation', $api);
             $viewModel->setVariable('type', 'api');
             return $viewModel;
